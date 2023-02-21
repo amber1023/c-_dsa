@@ -1,0 +1,100 @@
+// C++ program to rotate right an array by K times
+#include <bits/stdc++.h>
+using namespace std;
+
+void insertion_element_after_index(int* arr, int n,  int index, int ele)
+{
+    int temp;
+    int j=0;
+    if(index==n){
+    arr[n]=ele;
+}
+    else{
+    
+    for(j=n;j>=index;j--)
+    {
+        arr[j]=arr[j-1];
+    }
+    arr[index]= ele;
+    }
+    for(int i=0;i<n+1;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    
+}
+
+
+int search_index_to_find_element(int* arr, int n, int index)
+{
+     int i=0,x;
+    if(index>n)
+ {   x= 0;
+   
+}
+   
+    else{
+        while(i<n)
+        {
+            if(index==i){
+                 x =arr[i];
+            }
+            
+            i++;
+        }
+        
+    }
+    return x;
+}
+void search_element_to_find_index(int* arr, int n, int element)
+{
+    
+   for(int i =0;i<=n;i++)
+   {
+       if(element == arr[i])  
+         cout<<"search_element_to_find_index :"<<i;
+   }   
+  
+   
+}
+
+
+void delete_element(int* arr, int n, int delete_ele)
+{
+    int x;
+     for(int i =0;i<=n;i++)
+   {
+       if(delete_ele == arr[i])  
+         x= i;
+   }  
+   
+   for(int i=x;i<n;i++)
+   {
+        arr[i] = arr[i + 1];
+   }
+   
+   for(int i=0;i<n;i++)
+   {
+       cout<<arr[i]<<" ";
+   }
+}
+
+int main()
+{
+    int arr[] = {1,2,3,4,5 };// 12 34 10 7 6 40
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int search_i = 0;
+    int search_ele = 5;
+    int index =2;
+    int delete_ele= 3;
+    int ele = 45;
+    cout<<"Insert element: "<<" ";
+    insertion_element_after_index(arr,n,index ,ele);
+    cout<<endl;
+    cout<<"search_index_to_find_element: "<<search_index_to_find_element(arr, n,search_i )<<"\n";
+	search_element_to_find_index(arr, n, search_ele);
+	cout<<endl;
+	delete_element(arr,n, delete_ele);
+	
+	
+}
